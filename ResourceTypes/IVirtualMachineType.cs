@@ -1,7 +1,6 @@
 ﻿namespace Geeks.Cloud.Infrastructure.Management.ResourceTypes
 {
-    public interface IResourceType
+    public interface IVirtualMachineType : IResourceType
     {
-        string ResourceName { get; }
     }
 }

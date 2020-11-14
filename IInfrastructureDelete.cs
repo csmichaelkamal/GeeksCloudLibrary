@@ -2,8 +2,8 @@
 
 namespace Geeks.Cloud.Infrastructure.Management
 {
-    public interface IInfrastructureDelete<T>
+    public interface IInfrastructureDelete
     {
-        Task<bool> DeleteInfrastructure(T t);
+        Task<bool> DeleteInfrastructure();
     }
 }

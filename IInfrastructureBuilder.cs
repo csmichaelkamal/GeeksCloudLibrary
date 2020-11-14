@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using Geeks.Cloud.Infrastructure.Management.Providers;
 
 namespace Geeks.Cloud.Infrastructure.Management
 {
-    public interface IInfrastructureBuilder<T>
+    public interface IInfrastructureBuilder<C> where C : ICloudProvider
     {
-        Task<T> BuildInfrastructure();
+        C BuildInfrastructure(C cloudProvider, string infrastructureName);
     }
 }
