@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geeks.Cloud.Infrastructure.Management", "Geeks.Cloud.Infrastructure.Management\Geeks.Cloud.Infrastructure.Management.csproj", "{52C9CD07-6AAE-45F3-93D4-5C3C4914FB1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D68D0634-C271-41F0-8EE5-737147FACC5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geeks.Cloud.Infrastructure.Management.Tests", "Geeks.Cloud.Infrastructure.Management.Tests\Geeks.Cloud.Infrastructure.Management.Tests.csproj", "{D39E961F-4B06-4226-BC63-117DAEC094E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52C9CD07-6AAE-45F3-93D4-5C3C4914FB1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52C9CD07-6AAE-45F3-93D4-5C3C4914FB1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52C9CD07-6AAE-45F3-93D4-5C3C4914FB1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52C9CD07-6AAE-45F3-93D4-5C3C4914FB1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D39E961F-4B06-4226-BC63-117DAEC094E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D39E961F-4B06-4226-BC63-117DAEC094E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D39E961F-4B06-4226-BC63-117DAEC094E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D39E961F-4B06-4226-BC63-117DAEC094E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D39E961F-4B06-4226-BC63-117DAEC094E1} = {D68D0634-C271-41F0-8EE5-737147FACC5E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11E2BCEA-0009-4327-A424-EF00DC13DA2B}
+	EndGlobalSection
+EndGlobal
