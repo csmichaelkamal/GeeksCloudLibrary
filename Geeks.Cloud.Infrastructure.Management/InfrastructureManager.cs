@@ -21,9 +21,11 @@ namespace Geeks.Cloud.Infrastructure.Management
             return iGSCloudProvider;
         }
 
-        public Task<bool> DeleteInfrastructure()
+        public Task<bool> DeleteInfrastructure(IGSCloudProvider iGSCloudProvider, string infrastructureName)
         {
-            throw new NotImplementedException();
+            var infrastructureDeleted = iGSCloudProvider.DeleteInfrastructure(infrastructureName);
+
+            return Task.FromResult(infrastructureDeleted);
         }
     }
 }

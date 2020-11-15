@@ -14,11 +14,19 @@ namespace Geeks.Cloud.Infrastructure.Management.Tests
         }
 
         [Test]
-        public void BuildInfrastructure_ShouldCreateWindows()
+        public void BuildInfrastructure_ShouldCreateSubdirectoryForEachResource()
         {
             IGSCloudProvider iGSCloudProvider = new IGSCloudProvider();
 
-            _infrastructureManager.BuildInfrastructure(iGSCloudProvider, "UAT");
+            _infrastructureManager.BuildInfrastructure(iGSCloudProvider, "Test");
+        }
+
+        [Test]
+        public void DeleteInfrastructure_ShouldDeleteAllSubdirectoriesUnderInfrastructure()
+        {
+            IGSCloudProvider iGSCloudProvider = new IGSCloudProvider();
+
+            _infrastructureManager.DeleteInfrastructure(iGSCloudProvider, "Test");
         }
     }
 }

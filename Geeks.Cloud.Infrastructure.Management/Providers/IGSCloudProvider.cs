@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using Geeks.Cloud.Infrastructure.Helpers.Directory;
+using Newtonsoft.Json;
+using System;
+using System.IO;
 
 namespace Geeks.Cloud.Infrastructure.Management.Providers
 {
@@ -22,15 +25,9 @@ namespace Geeks.Cloud.Infrastructure.Management.Providers
         {
             infrastructure = new Infrastructure(infrastructureName);
 
-            if (!Directory.Exists(Name))
-            {
-                Directory.CreateDirectory(Name);
-            }
+            DirectoryHelper.CreateDirectoryIfNotExists(Name);
 
-            if (!Directory.Exists($@"{Name}\{infrastructureName}"))
-            {
-                Directory.CreateDirectory($@"{Name}\{infrastructureName}");
-            }
+            DirectoryHelper.CreateDirectoryIfNotExists($@"{Name}\{infrastructureName}");
 
             this.infrastructureName = infrastructureName;
 
@@ -43,12 +40,57 @@ namespace Geeks.Cloud.Infrastructure.Management.Providers
             {
                 foreach (var resourceType in infrastructure.resourceTypes)
                 {
-                    if (!Directory.Exists($@"{Name}\{infrastructureName}\{resourceType.ResourceName}"))
+                    DirectoryHelper.CreateDirectoryIfNotExists($@"{Name}\{infrastructureName}\{resourceType.ResourceName}");
+
+                    var resourceObject = new
                     {
-                        Directory.CreateDirectory($@"{Name}\{infrastructureName}\{resourceType.ResourceName}");
+                        resourceType.ResourceName
+                    };
+
+                    var resourceObjectAsJson = JsonConvert.SerializeObject(resourceObject);
+
+                    try
+                    {
+                        File.WriteAllText($@"{Name}\{infrastructureName}\{resourceType.ResourceName}\{infrastructureName}_Server.json", resourceObjectAsJson);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        // Log Exception Message
+
+                        // Throw Expection
+                        throw ex;
                     }
                 }
             }
+        }
+
+        public bool DeleteInfrastructure(string infrastructureName)
+        {
+            if (!Directory.Exists(Name))
+            {
+                throw new Exception("Cloud Provider Directory Not Found");
+            }
+
+            if (!Directory.Exists($@"{Name}\{infrastructureName}"))
+            {
+                throw new Exception("Infrastructure Directory Not Found");
+            }
+
+            foreach (var resourceDirectory in Directory.GetDirectories($@"{Name}\{infrastructureName}"))
+            {
+                try
+                {
+                    Directory.Delete(resourceDirectory, true);
+                }
+                catch (Exception ex)
+                {
+                    // Log ex.Message
+
+                    throw ex;
+                }
+            }
+
+            return true;
         }
     }
 }
